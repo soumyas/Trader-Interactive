@@ -7,7 +7,7 @@ class EquipmentDealerSearch():
      def __init__(self,driver):
       self.driver=driver
 
-      
+      #Test Data
      def openUrl(self):
       reader = ReaderFile.ReadXML()
       self.driver.get(reader.readInI('test', "URL1"))
