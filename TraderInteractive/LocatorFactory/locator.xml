@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Locators>
+	<HomePage>
+		<Keyword>//input[@placeholder="Enter keyword"]</Keyword>
+		<SearchButton>//button[@id='submit_button']</SearchButton>
+		<LogIn>//span[@class='smallest' and contains(text(),'Log In')]</LogIn>
+	</HomePage>
+	
+	<SearchPage>
+		<BackToHome>//*[@title='Back to home']/img[1]</BackToHome>	
+		<SellerType>//a[contains(text(),'Seller Type')]</SellerType>
+		<PrivateSeller>//a[contains(text(),'Private Seller')]</PrivateSeller>
+		<PrivateParty>//div[@id='listView']/div[1]//span[@class='dInline bold black padding0']</PrivateParty>
+		<PrivatePartyDetails>//div[@id='listView']/div[1]//div[@class='descItems']/div[4]</PrivatePartyDetails>
+		<PrivatePartyDetailsAClick>//div[@class='center']/p[2]</PrivatePartyDetailsAClick>
+		<NonPrivateSeller>//*[@id='sellerTypeDetail']//a[text()='Dealer']</NonPrivateSeller>
+		<NonPrivateParty>//div[@id='listView']//div[@class='listCardButtons']/div[3]/a[contains(text(), ' More Details ')]</NonPrivateParty>
+		<NonPrivatePartyDetails>//div[@id='listView']/div[1]//h2[@class='listing-info']</NonPrivatePartyDetails>
+		<NonPrivatePartyDetailsAClick>(//div[@class='col-xs-12 col-sm-9 inline padding0 padding-right10'])[2]/h1</NonPrivatePartyDetailsAClick>
+		<EquipPrivateParty>//div[@id='listView']/div[1]//span[@class='seller-name dInline bold black padding0']</EquipPrivateParty>
+		<EquipPrivatePartyDetails>//div[@id='listView']/div[1]//span[@class='seller-name dInline bold black padding0']/../following-sibling::div/span</EquipPrivatePartyDetails>
+		<EquipPrivatePartyDetailsAClick>//div[@class='center']/p[2]</EquipPrivatePartyDetailsAClick>	
+		<EquipNonPrivateParty>//div[@id='listView']/div[1]//div[@class='listing-info-top padding10']/a[2]/h2</EquipNonPrivateParty>
+	</SearchPage>
+	
+	<SearchResult>
+		<KeywordResult>//div[@id='keywordOption']/a</KeywordResult>
+		<KeywordInput>//input[@class='inputWrapr keyword']</KeywordInput>
+		<KeywordUpdateButton>//div[@data-track='Update Keyword']</KeywordUpdateButton>
+		<ClassType1>//div[@class='popover-content']//div[@class='refineOptions']/div[4]//input[@type='checkbox']</ClassType1>
+		<CategoryType1>//div[@class='popover-content']//div[@class='refineOptions']/div[4]//input[@type='checkbox']</CategoryType1>
+		<Make>//div[@id='makeOption']</Make>
+		<MakeType>//div[@class='popover-content']//div[@class='refineOptions']/div[1]//input[@type='checkbox']</MakeType>
+		<Model>//div[@id='modelOption']</Model>
+		<ModelType>//div[@class='popover-content']//div[@class='refineOptions']/div[2]//input[@type='checkbox']</ModelType>
+		<Price>//div[@id='priceOption']</Price>
+		<PriceRange>(//div[@data-param='price']/div[@class='refineOptionsContainer'])[2]/div[1]/div[1]//a</PriceRange>
+	 </SearchResult>
+	
+	<MultipleSearch>
+	    <SearchButton>//button[@id='submit_button']</SearchButton>
+		<Class>//div[@id='classOption']</Class>
+		<ClassType>//div[@class='popover-content']//div[@class='refineOptions']/div[1]//input[@type='checkbox']</ClassType>
+		<UpdateButton>//div[@class='popover-content']//div[@class='btn btn-primary bounce animated']</UpdateButton>
+		<Category>//div[@id='categoryOption']</Category>
+		<CategoryType>//div[@class='popover-content']//div[@class='refineOptions']/div[1]//input[@type='checkbox']</CategoryType>
+		<StartOver>//span[@id='resetRefineSearch']</StartOver>
+	</MultipleSearch>
+	
+	<DealerSearch>
+		<Dealer>//li[@data-track='Nav - Dealers']</Dealer>
+		<SearchDealerButton>//*[@id='additional-info-dealers']//a[contains(@data-track, 'Search Dealers')]</SearchDealerButton>
+		<AllClass>//select[@id='classSelect']</AllClass>
+		<ClassHeavyduty>//select[@name='class']/option[text()='Heavy Duty']</ClassHeavyduty>
+		<ClassOption>//select[@name='class']</ClassOption>
+		<AllCategory>//select[@id='categorySelect']</AllCategory>
+		<CategoryAmbulance>//select[@name='category']/option[text()='Ambulance']</CategoryAmbulance>
+		<AllMake>//select[@id='makeSelect']</AllMake>
+		<MakeFord>//select[@name='make']/option[text()='FORD']</MakeFord>
+		<MakeOption>//select[@name='make']</MakeOption>
+		<Search>//button[@class='btn btn-primary btn-large btn-block']</Search>
+		<DealerResultButton>//ul[@class='list-unstyled margin-top10']/li[1]//a[2]/span[1]</DealerResultButton>
+		<DealerClass>//div[@id='classOption']</DealerClass>
+		<MultiiClass1>//div[@class='popover-content']//div[@class='refineOptions']/div[1]//input[@type='checkbox']</MultiiClass1>
+		<MultiiClass2>//div[@class='popover-content']//div[@class='refineOptions']/div[2]//input[@type='checkbox']</MultiiClass2>
+		<MultiiClass3>//div[@class='popover-content']//div[@class='refineOptions']/div[5]//input[@type='checkbox']</MultiiClass3>
+		<DealerUpdateButton>//div[@class='popover-content']//div[@class='btn btn-primary bounce animated']</DealerUpdateButton>
+	</DealerSearch>
+	
+	<MyTraderLogin>
+		<LogIn>//span[@class='smallest' and contains(text(),'Log In')]</LogIn>
+		<SignInButton>//button[@class='btn btn-primary']</SignInButton>
+		<user>//*[@name='username']</user>
+		<pass>//*[@name='password']</pass>
+		<Hamburger>//div[@id='hamburgerButton']</Hamburger>
+		<SignOutMyTrader>//span[@class='sidebar-text' and contains(text(),' Sign Out of MyTrader')]</SignOutMyTrader>
+	</MyTraderLogin>
+	
+</Locators>
