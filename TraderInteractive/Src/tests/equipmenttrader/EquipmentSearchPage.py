@@ -2,15 +2,12 @@ from selenium import webdriver
 import unittest
 from Src.pageHelper.EquipmentTraderHelper import EquipmentResult
 from Src.reportrunner import HTMLTestRunner
+from Src.utils import DriverFramework
 
-class EquipmentSearchPage(unittest.TestCase):
+class EquipmentSearchPage(DriverFramework.DriverFramework):
 
-    @classmethod
-    def setUpClass(cls):
-        options = webdriver.ChromeOptions()
-        options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
-        options.add_argument("--start-maximized")
-        cls.driver = webdriver.Chrome(executable_path="C:/Users/admin/eclipse-workspace/TraderInteractive/Webdriverexe/chromedriver.exe",chrome_options=options)
+    def setUp(self):
+        super(EquipmentSearchPage, self).setup()
         
     #Open Application   
     def test_SearchResult(self):
@@ -69,13 +66,12 @@ class EquipmentSearchPage(unittest.TestCase):
         #Go to home page
         helper.clickOnBackToHome()
     
-    @classmethod
     def tearDown(self):
-        self.driver.quit()
+        super(EquipmentSearchPage, self).tearDown()
         
         
-if __name__ == 'Src.tests.equipmenttrader.EquipmentSearchPage': 
-    outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/searchpage.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(outfile)
-    sp = EquipmentSearchPage('test_SearchResult')
-    runner.run(sp)
+#if __name__ == 'Src.tests.equipmenttrader.EquipmentSearchPage': 
+    #outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/searchpage.html", "w")
+    #runner = HTMLTestRunner.HTMLTestRunner(outfile)
+    #sp = EquipmentSearchPage('test_SearchResult')
+    #runner.run(sp)

@@ -2,19 +2,12 @@ from selenium import webdriver
 import unittest
 from Src.pageHelper.EquipmentTraderHelper import EquipmentResetRefineSearch
 from Src.reportrunner import HTMLTestRunner
+from Src.utils import DriverFramework
 
-   
-class EquipmemtTraderResetRefineSearch(unittest.TestCase):
-
-    @classmethod
-    def setUpClass(cls):
-        options = webdriver.ChromeOptions()
-        options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
-        options.add_argument("--start-maximized")
-        cls.driver = webdriver.Chrome(executable_path="C:/Users/admin/eclipse-workspace/TraderInteractive/Webdriverexe/chromedriver.exe",chrome_options=options)
+class EquipmemtTraderResetRefineSearch(DriverFramework.DriverFramework):
 
     def setUp(self):
-        super(EquipmemtTraderResetRefineSearch,self).setUp()
+        super(EquipmemtTraderResetRefineSearch, self).setup()
         
     # Open Application   
     def test_EquipRefineSearch(self):
@@ -43,19 +36,17 @@ class EquipmemtTraderResetRefineSearch(unittest.TestCase):
         #Click on Update button at Class popup window
         helper.clickOnUpdateButtonClass()
         
-           
         #Click on Start Over button
         helper.clickOnStartOverButton()
         
         #Go to home page
         helper.clickOnBackToHome()
         
-    @classmethod
     def tearDown(self):
-        self.driver.quit()
+        super(EquipmemtTraderResetRefineSearch, self).tearDown()
 
-if __name__ == 'Src.tests.equipmenttrader.EquipmemtTraderResetRefineSearch': 
-    outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/refinesearch.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(outfile)
-    rs = EquipmemtTraderResetRefineSearch('test_EquipRefineSearch')
-    runner.run(rs)
+#if __name__ == 'Src.tests.equipmenttrader.EquipmemtTraderResetRefineSearch': 
+    #outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/refinesearch.html", "w")
+    #runner = HTMLTestRunner.HTMLTestRunner(outfile)
+    #rs = EquipmemtTraderResetRefineSearch('test_EquipRefineSearch')
+    #runner.run(rs)

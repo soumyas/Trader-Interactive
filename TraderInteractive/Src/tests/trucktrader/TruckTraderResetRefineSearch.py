@@ -2,15 +2,12 @@ from selenium import webdriver
 import unittest
 from Src.pageHelper.TruckTraderHelper import TruckResetRefineSearch
 from Src.reportrunner import HTMLTestRunner
+from Src.utils import DriverFramework
 
-class TruckTraderResetRefineSearch(unittest.TestCase):
+class TruckTraderResetRefineSearch(DriverFramework.DriverFramework):
 
-    @classmethod
-    def setUpClass(cls):
-        options = webdriver.ChromeOptions()
-        options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
-        options.add_argument("--start-maximized")
-        cls.driver = webdriver.Chrome(executable_path="C:/Users/admin/eclipse-workspace/TraderInteractive/Webdriverexe/chromedriver.exe",chrome_options=options)
+    def setUp(self):
+        super(TruckTraderResetRefineSearch, self).setup()
         
     # Open Application   
     def test_RefineSearch(self):
@@ -45,12 +42,12 @@ class TruckTraderResetRefineSearch(unittest.TestCase):
         #Go to home page
         helper.clickOnBackToHome()
         
-    @classmethod
+    #@classmethod
     def tearDown(self):
-        self.driver.quit()
+        super(TruckTraderResetRefineSearch, self).tearDown()
         
-if __name__ == 'Src.tests.trucktrader.TruckTraderResetRefineSearch': 
-    outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/RefineSearch.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(outfile)
-    RefineSearch = TruckTraderResetRefineSearch('test_RefineSearch')
-    runner.run(RefineSearch)
+#if __name__ == 'Src.tests.trucktrader.TruckTraderResetRefineSearch': 
+    #outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/RefineSearch.html", "w")
+    #runner = HTMLTestRunner.HTMLTestRunner(outfile)
+    #RefineSearch = TruckTraderResetRefineSearch('test_RefineSearch')
+    #runner.run(RefineSearch)

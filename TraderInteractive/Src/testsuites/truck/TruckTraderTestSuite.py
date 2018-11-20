@@ -1,6 +1,7 @@
 import unittest
 from Src.reportrunner import HTMLTestRunner
 import os
+
 from Src.tests.trucktrader.MyTraderLoginPage import MyTraderLoginPage
 from Src.tests.trucktrader.HomePage import HomePage
 from Src.tests.trucktrader.TruckSearchPage import TruckSearchPage
@@ -20,9 +21,10 @@ TruckTraderResetRefineSearch = unittest.TestLoader().loadTestsFromTestCase(Truck
 
 #regression_tests = unittest.TestSuite([MyTraderLoginPage,HomePage,TruckSearchPage,TruckTraderDealerSearch,TruckTraderKeywordSearch, TruckTraderResetRefineSearch, TruckSearchResult])
 regression_tests = unittest.TestSuite([MyTraderLoginPage, HomePage,TruckSearchPage,TruckTraderDealerSearch,TruckTraderKeywordSearch,TruckTraderResetRefineSearch])
+#regression_tests = unittest.TestSuite([HomePage])
 
 # open the report file
-outfile = open("..\\Reports\\TruckTraderRegressionTestReport.html", "w")
+outfile = open(r"..\\..\\..\\Reports\TruckTraderRegressionTestReport.html", "w")
 # configure HTMLTestRunner options
 runner = HTMLTestRunner.HTMLTestRunner(outfile,
                         title='Trader Interactive Automated Tests',

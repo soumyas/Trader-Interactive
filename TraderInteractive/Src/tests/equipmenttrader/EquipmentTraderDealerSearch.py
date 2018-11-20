@@ -2,17 +2,14 @@ from selenium import webdriver
 import unittest
 from Src.pageHelper.EquipmentTraderHelper import EquipmentDealerSearch
 from Src.reportrunner import HTMLTestRunner
+from Src.utils import DriverFramework
 
-class EquipmentTraderDealerSearch(unittest.TestCase):
+class EquipmentTraderDealerSearch(DriverFramework.DriverFramework):
     
-     @classmethod
-     def setUpClass(cls):
-        options = webdriver.ChromeOptions()
-        options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
-        options.add_argument("--start-maximized")
-        cls.driver = webdriver.Chrome(executable_path="C:/Users/admin/eclipse-workspace/TraderInteractive/Webdriverexe/chromedriver.exe",chrome_options=options)
+     def setUp(self):
+        super(EquipmentTraderDealerSearch, self).setup()
         
-    # Open Application   
+     #Open Application   
      def test_EquipDealerSearch(self):
         helper = EquipmentDealerSearch.EquipmentDealerSearch(self.driver)
 
@@ -60,14 +57,12 @@ class EquipmentTraderDealerSearch(unittest.TestCase):
         #Click BackToHome      
         helper.clickOnBackToHome()
         
-        
-     @classmethod
-     def teardown(self):
-        self.driver.quit()
+     def tearDown(self):
+        super(EquipmentTraderDealerSearch, self).tearDown()
        
         
-if __name__ == 'Src.tests.equipmenttrader.EquipmentTraderDealerSearch': 
-    outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/dealersearch.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(outfile)
-    ds = EquipmentTraderDealerSearch('test_EquipDealerSearch')
-    runner.run(ds)
+#if __name__ == 'Src.tests.equipmenttrader.EquipmentTraderDealerSearch': 
+    #outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/dealersearch.html", "w")
+    #runner = HTMLTestRunner.HTMLTestRunner(outfile)
+    #ds = EquipmentTraderDealerSearch('test_EquipDealerSearch')
+    #runner.run(ds)

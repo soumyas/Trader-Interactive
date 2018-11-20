@@ -2,15 +2,12 @@ from selenium import webdriver
 import unittest
 from Src.pageHelper.TruckTraderHelper import TruckDealerSearch
 from Src.reportrunner import HTMLTestRunner
+from Src.utils import DriverFramework
 
-class TruckTraderDealerSearch(unittest.TestCase):
+class TruckTraderDealerSearch(DriverFramework.DriverFramework):
     
-    @classmethod
-    def setUpClass(cls):
-        options = webdriver.ChromeOptions()
-        options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
-        options.add_argument("--start-maximized")
-        cls.driver = webdriver.Chrome(executable_path="C:/Users/admin/eclipse-workspace/TraderInteractive/Webdriverexe/chromedriver.exe",chrome_options=options)
+    def setUp(self):
+        super(TruckTraderDealerSearch, self).setup()
         
     # Open Application   
     def test_DealerSearch(self):
@@ -69,10 +66,10 @@ class TruckTraderDealerSearch(unittest.TestCase):
               
     @classmethod
     def tearDown(self):
-        self.driver.quit()
+        super(TruckTraderDealerSearch, self).tearDown()
         
-if __name__ == 'Src.tests.trucktrader.TruckTraderDealerSearch': 
-    outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/dealersearch.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(outfile)
-    DealerSearch = TruckTraderDealerSearch('test_DealerSearch')
-    runner.run(DealerSearch)
+#if __name__ == 'Src.tests.trucktrader.TruckTraderDealerSearch': 
+    ##outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/dealersearch.html", "w")
+    #runner = HTMLTestRunner.HTMLTestRunner(outfile)
+    #DealerSearch = TruckTraderDealerSearch('test_DealerSearch')
+    #runner.run(DealerSearch)

@@ -2,15 +2,12 @@ from selenium import webdriver
 import unittest
 from Src.pageHelper.EquipmentTraderHelper import Equipmentkeywordsearch
 from Src.reportrunner import HTMLTestRunner
+from Src.utils import DriverFramework
 
-class EquipTraderKeywordSearch(unittest.TestCase):
+class EquipTraderKeywordSearch(DriverFramework.DriverFramework):
        
-    @classmethod
-    def setUpClass(cls):
-        options = webdriver.ChromeOptions()
-        options.add_experimental_option("excludeSwitches", ["ignore-certificate-errors"])
-        options.add_argument("--start-maximized")
-        cls.driver = webdriver.Chrome(executable_path="C:/Users/admin/eclipse-workspace/TraderInteractive/Webdriverexe/chromedriver.exe",chrome_options=options)
+    def setUp(self):
+        super(EquipTraderKeywordSearch, self).setup()
         
     # Open Application   
     def test_KeywordSearch(self):
@@ -25,12 +22,11 @@ class EquipTraderKeywordSearch(unittest.TestCase):
         helper.clickOnBackToHome()        
 
     
-    @classmethod
     def tearDown(self):
-        self.driver.quit()
+        super(EquipTraderKeywordSearch, self).tearDown()
         
-if __name__ == 'Src.tests.equipmenttrader.EquipTraderKeywordSearch': 
-    outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/keywordsearch.html", "w")
-    runner = HTMLTestRunner.HTMLTestRunner(outfile)
-    ks = EquipTraderKeywordSearch('test_KeywordSearch')
-    runner.run(ks)
+#if __name__ == 'Src.tests.equipmenttrader.EquipTraderKeywordSearch': 
+    #outfile = open("C:/Users/admin/eclipse-workspace/TraderInteractive/Reports/keywordsearch.html", "w")
+    #runner = HTMLTestRunner.HTMLTestRunner(outfile)
+    #ks = EquipTraderKeywordSearch('test_KeywordSearch')
+    #runner.run(ks)

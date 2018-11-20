@@ -1,6 +1,7 @@
 import unittest
 from Src.reportrunner import HTMLTestRunner
 import os
+
 from Src.tests.equipmenttrader.HomePage import HomePage
 from Src.tests.equipmenttrader.EquipmentTraderDealerSearch import EquipmentTraderDealerSearch
 from Src.tests.equipmenttrader.EquipTraderKeywordSearch import EquipTraderKeywordSearch
@@ -22,7 +23,7 @@ regression_tests = unittest.TestSuite([HomePage, EquipmentTraderDealerSearch,Equ
 #regression_tests = unittest.TestSuite([HomePage])
 
 # open the report file
-outfile = open("..\\Reports\\EquipTraderRegressionTestReport.html", "w")
+outfile = open(r"..\\..\\..\\Reports\EquipTraderRegressionTestReport.html", "w")
 # configure HTMLTestRunner options
 runner = HTMLTestRunner.HTMLTestRunner(outfile,
                         title='Trader Interactive Automated Tests',
